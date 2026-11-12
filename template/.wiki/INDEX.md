@@ -7,7 +7,7 @@ This directory holds durable project knowledge. Keep one document as the owner o
 - [Ideas](IDEAS.md) holds exploratory directions, possible features, questions, and loose plans. Its contents are not accepted scope or commitments.
 - [Product concept](CONCEPT.md) owns accepted product purpose, intended users, principles, and boundaries.
 - [Product requirements](PRD.md) owns product-level goals, success metrics, user journeys, functional and non-functional requirements, and release criteria.
-- [Architecture](ARCHITECTURE.md) describes the currently implemented system and its constraints.
+- [Architecture](ARCHITECTURE.md) owns the intended shape of the system, the rules code must follow, the reasons behind decisions, and the known gaps between that intent and the code.
 - [Design system](DESIGN.md) owns visual language, tokens, and UI conventions.
 - [Planned work](TODO.md) owns committed or imminent work.
 - [Backlog](BACKLOG.md) owns deferred, aspirational, or unscheduled work.

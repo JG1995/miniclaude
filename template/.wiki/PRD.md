@@ -152,7 +152,7 @@ For why the product exists and who it serves, see [CONCEPT.md](./CONCEPT.md). Fo
 - [ ] All critical user journeys in section 5 verified end to end, including failure paths
 - [ ] All non-functional requirements in section 7 measured and met
 - [ ] Pre-delivery checklist in [DESIGN.md](./DESIGN.md) passes for all shipped UI
-- [ ] [ARCHITECTURE.md](./ARCHITECTURE.md) reflects the shipped system
+- [ ] [ARCHITECTURE.md](./ARCHITECTURE.md) lists every known gap between the shipped system and the intended architecture
 - [ ] [Product-specific criterion]
 
 ---

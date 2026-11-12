@@ -1,7 +1,7 @@
 # Core Guidelines
 You are building [describe product].
 
-Always build code cleanly, modularly, and with proper architecture and separation of concerns. Never simply bolt on a feature just because I asked for it. If you can't find an easy way to build it naturally, and you'd recommend a refactor to make the whole thing cleanly, stop your work ahead of time and say so. Always keep `.wiki/ARCHITECTURE.md` updated with both the planned architecture and current architecture.
+Always build code cleanly, modularly, and with proper architecture and separation of concerns. Never simply bolt on a feature just because I asked for it. If you can't find an easy way to build it naturally, and you'd recommend a refactor to make the whole thing cleanly, stop your work ahead of time and say so. Always keep `.wiki/ARCHITECTURE.md` updated: it states the intended architecture and lists where the code does not match it yet.
 
 Aside from this requirement, this codebase is yours: the product is decided by the user, but how it's built is your call, and you'll be the one to keep on building on it. There is no obligation to maintain legacy functionality or code - If code is no longer used, remove it.
 
