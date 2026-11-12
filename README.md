@@ -9,7 +9,7 @@ A Claude Code plugin with project starter files plus skills and agents for build
 - `skills/`: one folder per skill, each with a `SKILL.md`.
 - `template/`: starter files that `/miniclaude:init-project` copies into a project. Rules and settings for target projects go in `template/.claude/rules/` and `template/.claude/settings.json`, because plugins cannot install either directly.
 
-Add agents in `agents/<name>.md` and hooks in `hooks/hooks.json` when you need them.
+Add agents in `agents/<name>.md` and hooks in `hooks/hooks.json` when you need them. An agent that the template's `CLAUDE.md` names goes in `template/.claude/agents/` instead, so the project that relies on it commits it.
 
 ## Try it locally
 
@@ -42,3 +42,9 @@ Then run `/miniclaude:design-system`. It turns the set you picked into `.wiki/DE
 ## Specify a feature
 
 Run `/miniclaude:spec <feature>`. It settles what the repository, the wiki, and convention already answer, asks you only about the decisions that have no safe default, then writes the spec to `.wiki/features/`. Build the feature in a fresh session.
+
+## Review before a pull request
+
+The copied `CLAUDE.md` has Claude run `/code-review` on the branch before it opens a pull request. That review looks for bugs in the changes. When the branch implements a spec, Claude also has the `spec-checker` agent in `.claude/agents/spec-checker.md` check the branch against it: each acceptance criterion, constraint, and listed edge case, and anything the spec rules out. A bug review cannot find a requirement that was never built, because missing code is not in the diff.
+
+The agent can only read files, so it reports gaps and Claude fixes the ones that affect correctness. It runs on the session's model at high effort. When no effort level is given, `/code-review` reuses the last level you typed, so typing `/code-review high` once sets the depth of later reviews.
