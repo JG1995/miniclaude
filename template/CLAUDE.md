@@ -10,10 +10,14 @@ Aside from this requirement, this codebase is yours: the product is decided by t
 * Features are implemented in feature-branches, never `main`.
 * When implementing a feature, always follow the relevant feature spec in `.wiki/features`.
 * When creating UI, take screenshots to verify the outcome. Present outcome to user with select screenshots included.
+* Before reporting work as done, run the checks that cover it and include the commands and their output in the report.
+* Before opening a PR, use a subagent to review the diff against the feature spec: every requirement implemented and every listed edge case tested. Fix the gaps that affect correctness and skip style findings.
 * When a PR is approved, it is rebase-merged onto `main`.
 * When a PR has been merged, always clean up local git branches that are completed.
 
 ## Commands
+Record the exact commands here as soon as they exist, and correct them when the toolchain changes: install, run, test (the whole suite and a single file), typecheck, and lint.
+
 [insert repo-specific commands]
 
 ## Conventions
