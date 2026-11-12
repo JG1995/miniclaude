@@ -11,7 +11,7 @@ Aside from this requirement, this codebase is yours: the product is decided by t
 * When implementing a feature, always follow the relevant feature spec in `.wiki/features`.
 * When creating UI, take screenshots to verify the outcome. Present outcome to user with select screenshots included.
 * Before reporting work as done, run the checks that cover it and include the commands and their output in the report.
-* Before opening a PR, run `/code-review` on the branch. If the branch implements a spec in `.wiki/features/`, also have the `spec-checker` agent check the branch against it. Give the agent the spec path, the changed files and, for UI, the paths of your screenshots, but not your account of the work. Fix the findings that affect correctness and skip style findings.
+* Before opening a PR, run `/code-review` on the branch. If the branch implements a spec in `.wiki/features/`, also have the `miniclaude:spec-checker` agent check the branch against it. Give the agent the spec path, the changed files and, for UI, the paths of your screenshots, but not your account of the work. Fix the findings that affect correctness and skip style findings.
 * When a PR is approved, it is rebase-merged onto `main`.
 * When a PR has been merged, always clean up local git branches that are completed.
 

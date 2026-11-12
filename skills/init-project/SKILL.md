@@ -1,6 +1,6 @@
 ---
 name: init-project
-description: Populate the current repository with the miniclaude starter files (CLAUDE.md, Claude Code project settings and agents, .gitignore entries, and the .wiki/ project docs). Use when the user asks to initialise, bootstrap, or set up a new project with miniclaude. Not for updating an already initialised project's wiki content.
+description: Populate the current repository with the miniclaude starter files (CLAUDE.md, Claude Code project settings, .gitignore entries, and the .wiki/ project docs). Use when the user asks to initialise, bootstrap, or set up a new project with miniclaude. Not for updating an already initialised project's wiki content.
 disable-model-invocation: true
 ---
 
