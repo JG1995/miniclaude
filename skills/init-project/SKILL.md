@@ -1,6 +1,6 @@
 ---
 name: init-project
-description: Populate the current repository with the miniclaude starter files (CLAUDE.md, .gitignore entry, and the .wiki/ project docs). Use when the user asks to initialise, bootstrap, or set up a new project with miniclaude. Not for updating an already initialised project's wiki content.
+description: Populate the current repository with the miniclaude starter files (CLAUDE.md, Claude Code project settings, .gitignore entries, and the .wiki/ project docs). Use when the user asks to initialise, bootstrap, or set up a new project with miniclaude. Not for updating an already initialised project's wiki content.
 disable-model-invocation: true
 ---
 
@@ -30,10 +30,15 @@ Copy the starter files from `${CLAUDE_PLUGIN_ROOT}/template/` into the root of t
 
 4. If the target already had a `.gitignore`, append each template `.gitignore` line it lacks (comments included) instead of replacing the file.
 
-5. Fill the placeholders in the target `CLAUDE.md`, only if it was copied in step 3:
+5. If the target already had a `.claude/settings.json`, merge the template's settings into it instead of replacing the file:
+   - Append the `permissions.deny` rules it lacks, in the template's order. A `!` rule only exempts paths from the rules listed before it.
+   - Add `.wiki` to `worktree.symlinkDirectories`.
+   - Leave every other key as it is.
+
+6. Fill the placeholders in the target `CLAUDE.md`, only if it was copied in step 3:
    - `[describe product]`: ask the user for a one-sentence product description.
    - `[insert repo-specific commands]`: list the build, test, lint, and run commands you can find in the repository (for example in `package.json`, `Makefile`, `pyproject.toml`, or `Cargo.toml`). If there are none yet, leave the placeholder and say so.
 
-6. Report what was copied, what was skipped because it already existed, and any placeholder left unfilled. Point the user to `.wiki/INDEX.md` as the starting point.
+7. Report what was copied, what was merged or skipped because it already existed, and any placeholder left unfilled. Tell the user that `.claude/settings.json` stops Claude from reading or writing `.env` files other than `.env.example`. Point the user to `.wiki/INDEX.md` as the starting point.
 
 Do not commit. The `.wiki/` folder is git-ignored by design.
