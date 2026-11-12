@@ -32,3 +32,7 @@ The copied `.claude/settings.json` does two things:
 
 - It stops Claude from reading or writing `.env` files at any depth. `.env.example` stays readable.
 - It links `.wiki/` into every worktree Claude Code creates. The wiki is git-ignored, so a worktree would otherwise start without it. Claude can read the wiki through the link but cannot edit it, so write specs and wiki updates from the main checkout.
+
+## Specify a feature
+
+Run `/miniclaude:spec <feature>`. It settles what the repository, the wiki, and convention already answer, asks you only about the decisions that have no safe default, then writes the spec to `.wiki/features/`. Build the feature in a fresh session.
