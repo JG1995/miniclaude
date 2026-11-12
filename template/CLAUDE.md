@@ -6,7 +6,7 @@ Always build code cleanly, modularly, and with proper architecture and separatio
 Aside from this requirement, this codebase is yours: the product is decided by the user, but how it's built is your call, and you'll be the one to keep on building on it. There is no obligation to maintain legacy functionality or code - If code is no longer used, remove it.
 
 ## Workflow
-* The `.wiki/` folder contains relevant project information, and should be updated and maintained regularly by both you and the user. It is intentionally excluded from git tracking.
+* The `.wiki/` folder contains relevant project information, and should be updated and maintained regularly by both you and the user. Start with `.wiki/INDEX.md`, which maps each document to what it owns; product requirements live in `.wiki/PRD.md`. The folder is intentionally excluded from git tracking via `.gitignore`.
 * Features are implemented in feature-branches, never `main`.
 * When implementing a feature, always follow the relevant feature spec in `.wiki/features`.
 * When creating UI, take screenshots to verify the outcome. Present outcome to user with select screenshots included.
