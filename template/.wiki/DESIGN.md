@@ -182,6 +182,8 @@ spacing:
 
 [Name the central design concept or metaphor in 1 phrase, then 2-3 short paragraphs: what mood/aesthetic the product targets, who the user is and in what context they use it, and the guiding stylistic tension (e.g. dense vs. airy, light vs. dark, playful vs. precise). State any hard stances — e.g. "no light mode", "desktop-only", "OLED-first".]
 
+[Name the two to four cues that make this interface recognisably this product's, at least one of them not a colour, and say where each appears and where it is withheld. State how expressive the interface is: how loud, how much layouts vary from view to view, and how much motion it uses.]
+
 ## Colors
 
 [Describe the palette strategy in a sentence or two. Explain how elevation is conveyed (tonal layering vs. shadows) and why, given the product's needs. The hex tokens above are examples, not approved project colours. Use exact values from an approved brand kit or existing UI when available. If exploring in OKLCH, convert to final hex with a tool rather than estimating values.]
@@ -232,6 +234,8 @@ spacing:
 ## Design Principles
 
 [Non-negotiable constraints every component and interaction must satisfy. Number them; each is a short imperative rule with a concrete test. Adapt to the product — the list below is a starting set.]
+
+[Include the rules that keep the interface specific to this product: where its signature treatment appears and where it must not, and what this product does in place of the defaults it would otherwise fall into. A mood word such as "clean" or "modern" is not a principle.]
 
 1. **[Principle]:** [Rule + how it's verified.]
 2. **[Principle]:** [Rule + how it's verified.]
@@ -314,6 +318,13 @@ Common components to spec for most products (add/remove as needed):
 ## Pre-Delivery Checklist
 
 Before delivering any UI code, verify. [Adapt items to the product; grouped by concern.]
+
+### Fit to the Product
+
+- [ ] Every colour, radius, shadow, spacing, and type value comes from this document's tokens — no framework or component-kit default left in place
+- [ ] The signature treatment appears only where this document places it
+- [ ] Every gradient, glow, badge, icon, and animation has a job this document names
+- [ ] With the name and logo hidden, the screen still reads as this product
 
 ### Visual Quality
 
