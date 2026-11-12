@@ -22,7 +22,7 @@ This is the parking lot — aspirational work, deferred features, technical debt
 
 [Architecture, tooling, or code-quality issues that add friction. These are not scheduled but should be tracked so the cost is visible.]
 
-Each debt entry should capture the current evidence, the target state, the risk of leaving it, and the completion criteria. See [ARCHITECTURE.md](./ARCHITECTURE.md) for the current system description.
+Each debt entry should capture the current evidence, the target state, the risk of leaving it, and the completion criteria. See [ARCHITECTURE.md](./ARCHITECTURE.md) for the intended architecture and its known gaps.
 
 ---
 
