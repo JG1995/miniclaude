@@ -1,0 +1,13 @@
+{
+  "name": "miniclaude",
+  "owner": {
+    "name": "Jonas Greve"
+  },
+  "plugins": [
+    {
+      "name": "miniclaude",
+      "source": "./",
+      "description": "Project starter files, skills, and agents for building products with Claude Code."
+    }
+  ]
+}
