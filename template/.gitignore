@@ -1,2 +1,6 @@
-# Project wiki: maintained locally by the user and agents, intentionally not tracked
-.wiki/
+# Project wiki: maintained locally by the user and agents, intentionally not tracked.
+# No trailing slash: in a worktree `.wiki` is a link, which a directory-only pattern does not match.
+.wiki
+
+# Worktrees that Claude Code creates for parallel sessions
+.claude/worktrees/
