@@ -14,6 +14,7 @@ Aside from this requirement, this codebase is yours: the product is decided by t
 * Before opening a PR, run `/code-review` on the branch. If the branch implements a spec in `.wiki/features/`, also have the `miniclaude:spec-checker` agent check the branch against it. Give the agent the spec path, the changed files and, for UI, the paths of your screenshots, but not your account of the work. Fix the findings that affect correctness and skip style findings.
 * When a PR is approved, it is rebase-merged onto `main`.
 * When a PR has been merged, always clean up local git branches that are completed.
+* Releases follow SemVer, starting at `0.1.0`. Bump the version in a PR of its own; `1.0.0` is the first release that meets the release criteria in `.wiki/PRD.md`.
 
 ## Commands
 Record the exact commands here as soon as they exist, and correct them when the toolchain changes: install, run, test (the whole suite and a single file), typecheck, and lint.
