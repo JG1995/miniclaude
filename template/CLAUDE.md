@@ -23,5 +23,5 @@ Record the exact commands here as soon as they exist, and correct them when the 
 
 ## Conventions
 * Always follow TDD.
-* Git history is memory. Make messages and descriptions informative to both human and AI, and focus on the "why" as well as the "what".
+* Git history is memory, and rebase-merging keeps commit messages on `main` but not PR descriptions. In the commit body, say why the change was made, what you ruled out, and which PRD or spec IDs it implements (such as `FR-012`).
 * Follow KISS, DRY, YAGNI - Don't overengineer a simple change.
