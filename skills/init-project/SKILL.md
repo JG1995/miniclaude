@@ -48,11 +48,11 @@ Copy the starter files from `${CLAUDE_PLUGIN_ROOT}/template/` into the root of t
    - Leave every other key as it is.
 
 7. Install the pre-commit hook. It blocks a commit on `main` or `master` (except the first commit of a new repository), a commit whose staged changes have whitespace errors or leftover conflict markers, and a commit whose staged changes contain a secret, found by gitleaks. It also blocks while gitleaks is not installed. It ships with this skill rather than the template, so it goes into the clone's own hooks folder and never becomes a project file.
-   - If `git -C "<target-root>" config --get core.hooksPath` prints a path, the project uses its own hooks folder, for example through a hook manager such as husky. Do not install the hook; tell the user they can call `${CLAUDE_PLUGIN_ROOT}/skills/init-project/pre-commit` from their own pre-commit hook.
+   - If `git -C "<target-root>" config --get core.hooksPath` prints a path, the project uses its own hooks folder, for example through a hook manager such as husky. Do not install the hook; tell the user they can call `${CLAUDE_PLUGIN_ROOT}/skills/init-project/scripts/pre-commit` from their own pre-commit hook.
    - Otherwise find the hooks folder with `git -C "<target-root>" rev-parse --path-format=absolute --git-path hooks`. If it already has a `pre-commit` file, leave it as it is. If not, install the hook:
 
      ```bash
-     mkdir -p "<hooks-dir>" && cp "${CLAUDE_PLUGIN_ROOT}/skills/init-project/pre-commit" "<hooks-dir>/pre-commit" && chmod +x "<hooks-dir>/pre-commit"
+     mkdir -p "<hooks-dir>" && cp "${CLAUDE_PLUGIN_ROOT}/skills/init-project/scripts/pre-commit" "<hooks-dir>/pre-commit" && chmod +x "<hooks-dir>/pre-commit"
      ```
 
    - Check whether gitleaks is installed with `command -v gitleaks`.

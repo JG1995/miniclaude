@@ -45,7 +45,7 @@ The copied `.gitattributes` stores text files with LF line endings, so an editor
 - the staged changes have whitespace errors or leftover conflict markers, found by `git diff --cached --check`; Markdown may keep two trailing spaces for a line break;
 - the staged changes contain a secret, such as an API key or token, found by [gitleaks](https://github.com/gitleaks/gitleaks).
 
-The hook ships with the skill, in `skills/init-project/pre-commit`, and goes into the clone's own `.git/hooks/`, so it never becomes a project file. That also means it lives in one clone only: run `/miniclaude:init-project` again in a fresh clone to install it there. The hook also blocks commits while gitleaks is not installed, so install it first. If the project already sets `core.hooksPath`, for example through husky, the skill leaves the hooks alone.
+The hook ships with the skill, in `skills/init-project/scripts/pre-commit`, and goes into the clone's own `.git/hooks/`, so it never becomes a project file. That also means it lives in one clone only: run `/miniclaude:init-project` again in a fresh clone to install it there. The hook also blocks commits while gitleaks is not installed, so install it first. If the project already sets `core.hooksPath`, for example through husky, the skill leaves the hooks alone.
 
 ## Write the design system
 
