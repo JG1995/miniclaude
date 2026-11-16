@@ -1,0 +1,13 @@
+#!/bin/sh
+# Blocks a commit when its staged changes contain secrets such as API keys, tokens or private keys.
+# init-project installs it in the clone's own hooks folder (.git/hooks), so it is not part of the project.
+# Requires gitleaks: https://github.com/gitleaks/gitleaks#installing
+# For a false positive, add `gitleaks:allow` as a comment on that line, or list it in .gitleaksignore.
+
+if ! command -v gitleaks >/dev/null 2>&1; then
+  echo "pre-commit: gitleaks is not installed, so the staged changes were not scanned for secrets." >&2
+  echo "Install it from https://github.com/gitleaks/gitleaks#installing and commit again." >&2
+  exit 1
+fi
+
+exec gitleaks git --pre-commit --staged --redact --no-banner --verbose
