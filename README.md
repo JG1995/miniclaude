@@ -37,6 +37,8 @@ The copied `.claude/settings.json` does three things:
 
 The copied `.gitignore` keeps `.env` files other than `.env.example`, `.wiki/` and `.claude/` out of the project's history. In this repository its patterns are commented out with a `#~ ` prefix, so the template's own files stay tracked; `init-project` removes the prefixes when it copies the file.
 
+`init-project` also installs a pre-commit hook that runs [gitleaks](https://github.com/gitleaks/gitleaks) on the staged changes and blocks a commit that contains a secret, such as an API key or token. The hook ships with the skill, in `skills/init-project/pre-commit`, and goes into the clone's own `.git/hooks/`, so it never becomes a project file. That also means it lives in one clone only: run `/miniclaude:init-project` again in a fresh clone to install it there. The hook also blocks commits while gitleaks is not installed, so install it first. If the project already sets `core.hooksPath`, for example through husky, the skill leaves the hooks alone.
+
 ## Write the design system
 
 First choose a brand identity with the [brand-identity plugin](https://github.com/fatihaydost/brand-identity-skill). It writes its sets and guidelines kit to `brand-identity/` at the project root.
