@@ -1,0 +1,7 @@
+# Store text files with LF line endings and check them out with LF, also on Windows,
+# so an editor that writes Windows line endings cannot turn every line of a file into a diff.
+* text=auto eol=lf
+
+# Markdown ends a line with two trailing spaces to force a line break, so the
+# pre-commit whitespace check does not flag trailing spaces in Markdown files.
+*.md whitespace=-blank-at-eol
