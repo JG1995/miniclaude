@@ -1,9 +1,13 @@
+# Template note: the patterns below are commented out with `#~ ` so the miniclaude repo itself
+# still tracks these template files. /miniclaude:init-project removes this note and the `#~ `
+# prefixes when it copies this file into a project. If you copy it by hand, do the same.
+
 # Project wiki: maintained locally by the user and agents, intentionally not tracked.
 # No trailing slash: in a worktree `.wiki` is a link, which a directory-only pattern does not match.
-.wiki
+#~ .wiki
 
 # Brand-identity skill work folder (sets, boards, kits); the chosen identity is carried into .wiki/DESIGN.md
-/brand-identity/
+#~ /brand-identity/
 
 # Worktrees that Claude Code creates for parallel sessions
-.claude/worktrees/
+#~ .claude/worktrees/
