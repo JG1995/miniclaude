@@ -28,7 +28,14 @@ Copy the starter files from `${CLAUDE_PLUGIN_ROOT}/template/` into the root of t
 
    `-n` never overwrites an existing file.
 
-4. If the target already had a `.gitignore`, append each template `.gitignore` line it lacks (comments included) instead of replacing the file.
+4. Activate the template's ignore patterns. In the template `.gitignore`, every pattern is commented out with a `#~ ` prefix so the miniclaude repo itself still tracks those files, and the file opens with a `# Template note:` comment block that explains this.
+   - If `.gitignore` was copied in step 3, delete the template note block (and the blank line after it) and strip the `#~ ` prefix from every line:
+
+     ```bash
+     sed -i -e '/^# Template note:/,/^$/d' -e 's/^#~ //' "<target-root>/.gitignore"
+     ```
+
+   - If the target already had a `.gitignore`, append each template line it lacks instead of replacing the file: section comments as they are, patterns without the `#~ ` prefix, and never the template note.
 
 5. If the target already had a `.claude/settings.json`, merge the template's settings into it instead of replacing the file:
    - Append the `permissions.deny` rules it lacks, in the template's order. A `!` rule only exempts paths from the rules listed before it.
