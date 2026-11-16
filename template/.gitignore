@@ -9,5 +9,5 @@
 # Brand-identity skill work folder (sets, boards, kits); the chosen identity is carried into .wiki/DESIGN.md
 #~ /brand-identity/
 
-# Worktrees that Claude Code creates for parallel sessions
-#~ .claude/worktrees/
+# Claude Code project folder (settings, rules, worktrees): kept local, not tracked
+#~ .claude/
