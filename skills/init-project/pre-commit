@@ -1,8 +1,22 @@
 #!/bin/sh
-# Blocks a commit when its staged changes contain secrets such as API keys, tokens or private keys.
+# Blocks a commit when:
+# - it would land on main or master; the first commit of a new repository is allowed,
+# - its staged changes contain whitespace errors or leftover conflict markers,
+# - its staged changes contain secrets such as API keys, tokens or private keys.
 # init-project installs it in the clone's own hooks folder (.git/hooks), so it is not part of the project.
-# Requires gitleaks: https://github.com/gitleaks/gitleaks#installing
-# For a false positive, add `gitleaks:allow` as a comment on that line, or list it in .gitleaksignore.
+# The secret scan requires gitleaks: https://github.com/gitleaks/gitleaks#installing
+# For a gitleaks false positive, add `gitleaks:allow` as a comment on that line, or list it in .gitleaksignore.
+
+branch=$(git symbolic-ref --short -q HEAD)
+if { [ "$branch" = main ] || [ "$branch" = master ]; } && git rev-parse -q --verify HEAD >/dev/null; then
+  echo "pre-commit: work goes on a feature branch, not $branch. Move the staged changes to one with: git switch -c <branch>" >&2
+  exit 1
+fi
+
+if ! git diff --cached --check; then
+  echo "pre-commit: fix the whitespace errors or conflict markers listed above, stage the fix and commit again." >&2
+  exit 1
+fi
 
 if ! command -v gitleaks >/dev/null 2>&1; then
   echo "pre-commit: gitleaks is not installed, so the staged changes were not scanned for secrets." >&2

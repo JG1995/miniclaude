@@ -1,6 +1,6 @@
 ---
 name: init-project
-description: Populate the current repository with the miniclaude starter files (CLAUDE.md, Claude Code project settings, .gitignore entries, a secret-scanning pre-commit hook, and the .wiki/ project docs). Use when the user asks to initialise, bootstrap, or set up a new project with miniclaude. Not for updating an already initialised project's wiki content.
+description: Populate the current repository with the miniclaude starter files (CLAUDE.md, Claude Code project settings, .gitignore entries, a pre-commit hook, and the .wiki/ project docs). Use when the user asks to initialise, bootstrap, or set up a new project with miniclaude. Not for updating an already initialised project's wiki content.
 disable-model-invocation: true
 ---
 
@@ -45,7 +45,7 @@ Copy the starter files from `${CLAUDE_PLUGIN_ROOT}/template/` into the root of t
    - Set `attribution.commit` and `attribution.pr` to `""`, so commits and pull requests carry no Claude attribution.
    - Leave every other key as it is.
 
-6. Install the secret-scanning hook. It runs gitleaks on the staged changes and blocks the commit when it finds a secret, or when gitleaks is not installed. It ships with this skill rather than the template, so it goes into the clone's own hooks folder and never becomes a project file.
+6. Install the pre-commit hook. It blocks a commit on `main` or `master` (except the first commit of a new repository), a commit whose staged changes have whitespace errors or leftover conflict markers, and a commit whose staged changes contain a secret, found by gitleaks. It also blocks while gitleaks is not installed. It ships with this skill rather than the template, so it goes into the clone's own hooks folder and never becomes a project file.
    - If `git -C "<target-root>" config --get core.hooksPath` prints a path, the project uses its own hooks folder, for example through a hook manager such as husky. Do not install the hook; tell the user they can call `${CLAUDE_PLUGIN_ROOT}/skills/init-project/pre-commit` from their own pre-commit hook.
    - Otherwise find the hooks folder with `git -C "<target-root>" rev-parse --path-format=absolute --git-path hooks`. If it already has a `pre-commit` file, leave it as it is. If not, install the hook:
 
@@ -59,6 +59,6 @@ Copy the starter files from `${CLAUDE_PLUGIN_ROOT}/template/` into the root of t
    - `[describe product]`: ask the user for a one-sentence product description.
    - `[insert repo-specific commands]`: list the install, run, test, typecheck, and lint commands you can find in the repository (for example in `package.json`, `Makefile`, `pyproject.toml`, or `Cargo.toml`). If there are none yet, replace the placeholder with `None yet.` and say so.
 
-8. Report what was copied, what was merged or skipped because it already existed, and any placeholder left unfilled. Tell the user that `.claude/settings.json` stops Claude from reading or writing `.env` files other than `.env.example` and turns off Claude attribution in commits and pull requests, and that `.env` files other than `.env.example`, `.wiki/` and `.claude/` are git-ignored. Say whether the pre-commit hook was installed and whether gitleaks is installed; if it is not, commits are blocked until the user installs it. Tell the user that the hook lives in this clone only, so a fresh clone has no hook until `/miniclaude:init-project` runs there again; files that already exist are skipped. Point the user to `.wiki/INDEX.md` as the starting point.
+8. Report what was copied, what was merged or skipped because it already existed, and any placeholder left unfilled. Tell the user that `.claude/settings.json` stops Claude from reading or writing `.env` files other than `.env.example` and turns off Claude attribution in commits and pull requests, and that `.env` files other than `.env.example`, `.wiki/` and `.claude/` are git-ignored. Say whether the pre-commit hook was installed, that it keeps commits off `main` so work starts on a feature branch, and whether gitleaks is installed; if it is not, commits are blocked until the user installs it. Tell the user that the hook lives in this clone only, so a fresh clone has no hook until `/miniclaude:init-project` runs there again; files that already exist are skipped. Point the user to `.wiki/INDEX.md` as the starting point.
 
 Do not commit. The `.wiki/` and `.claude/` folders are git-ignored by design.
