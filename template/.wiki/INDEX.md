@@ -10,7 +10,7 @@ This directory holds durable project knowledge. Keep one document as the owner o
 - [Architecture](ARCHITECTURE.md) owns the intended shape of the system, the rules code must follow, the reasons behind decisions, and the known gaps between that intent and the code.
 - [Design system](DESIGN.md) owns visual language, tokens, and UI conventions.
 - [Planned work](TODO.md) owns committed or imminent work.
-- [Backlog](BACKLOG.md) owns deferred, aspirational, or unscheduled work.
+- [Backlog](BACKLOG.md) owns accepted but unscheduled work.
 - [Feature specs](features/README.md) own the detailed requirements of individual features.
 
 ## Documentation lifecycle
