@@ -29,9 +29,10 @@ claude plugin install miniclaude@miniclaude
 
 In an empty Git repository, run `/miniclaude:init-project`. It copies `template/` into the repository without overwriting existing files, then fills the placeholders in `CLAUDE.md`.
 
-The copied `.claude/settings.json` does two things:
+The copied `.claude/settings.json` does three things:
 
 - It stops Claude from reading or writing `.env` files at any depth. `.env.example` stays readable.
+- It turns off Claude attribution in commits and pull requests.
 - It links `.wiki/` into every worktree Claude Code creates. The wiki is git-ignored, so a worktree would otherwise start without it. Claude can read the wiki through the link but cannot edit it, so write specs and wiki updates from the main checkout.
 
 ## Write the design system
