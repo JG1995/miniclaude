@@ -35,6 +35,8 @@ The copied `.claude/settings.json` does three things:
 - It turns off Claude attribution in commits and pull requests.
 - It links `.wiki/` into every worktree Claude Code creates. The wiki is git-ignored, so a worktree would otherwise start without it. Claude can read the wiki through the link but cannot edit it, so write specs and wiki updates from the main checkout.
 
+The copied `.gitignore` keeps `.env` files other than `.env.example`, `.wiki/` and `.claude/` out of the project's history. In this repository its patterns are commented out with a `#~ ` prefix, so the template's own files stay tracked; `init-project` removes the prefixes when it copies the file.
+
 ## Write the design system
 
 First choose a brand identity with the [brand-identity plugin](https://github.com/fatihaydost/brand-identity-skill). It writes its sets and guidelines kit to `brand-identity/` at the project root.

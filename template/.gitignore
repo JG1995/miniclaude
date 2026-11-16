@@ -2,6 +2,11 @@
 # still tracks these template files. /miniclaude:init-project removes this note and the `#~ `
 # prefixes when it copies this file into a project. If you copy it by hand, do the same.
 
+# Environment files hold secrets; .env.example documents the variables and stays tracked
+#~ .env
+#~ .env.*
+#~ !.env.example
+
 # Project wiki: maintained locally by the user and agents, intentionally not tracked.
 # No trailing slash: in a worktree `.wiki` is a link, which a directory-only pattern does not match.
 #~ .wiki
