@@ -37,6 +37,8 @@ The copied `.claude/settings.json` does three things:
 
 The copied `.gitignore` keeps `.env` files other than `.env.example`, `.wiki/` and `.claude/` out of the project's history. In this repository its patterns are commented out with a `#~ ` prefix, so the template's own files stay tracked; `init-project` removes the prefixes when it copies the file.
 
+The copied `.gitattributes` stores text files with LF line endings, so an editor that writes Windows line endings cannot turn a whole file into a diff.
+
 `init-project` also installs a pre-commit hook. It blocks a commit when:
 
 - it would land on `main` or `master`, except the first commit of a new repository, so work happens on feature branches as the copied `CLAUDE.md` asks;
