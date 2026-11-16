@@ -1,8 +1,8 @@
 # Backlog
 
-Ideas, improvements, and tasks worth remembering but not scheduled for the near term. When something moves from "we should do this eventually" to "we plan to do this soon", it graduates to [TODO.md](./TODO.md).
+Accepted work worth remembering but not scheduled for the near term. When something moves from "we should do this eventually" to "we plan to do this soon", it graduates to [TODO.md](./TODO.md).
 
-This is the parking lot — aspirational work, deferred features, technical debt, investigations, and anything else that would be useful but has no committed delivery window.
+This is the parking lot for work the project has agreed is worth doing — deferred features, technical debt, investigations, and anything else that has no committed delivery window. Unvetted or exploratory ideas belong in [IDEAS.md](./IDEAS.md) until they are accepted.
 
 ---
 
@@ -16,7 +16,7 @@ This is the parking lot — aspirational work, deferred features, technical debt
 
 ## Low / Icebox
 
-[Interesting ideas, speculative improvements, or items blocked on external factors. Review periodically — most will stay here.]
+[Accepted but low-priority items, or items blocked on external factors. Review periodically — most will stay here.]
 
 ## Technical Debt
 
@@ -30,5 +30,6 @@ Each debt entry should capture the current evidence, the target state, the risk 
 
 - **Promote** entries to TODO.md when they become planned work — move the item text, don't duplicate it.
 - **Demote** entries from TODO.md here when planned work gets deprioritised.
+- **Return** entries to IDEAS.md when they turn out to be speculative rather than accepted.
 - **Prune** entries that are no longer relevant. The backlog is not a landfill.
 - **Review** the backlog every few cycles to promote, prune, or re-prioritise.
