@@ -45,7 +45,15 @@ The copied `.gitattributes` stores text files with LF line endings, so an editor
 - the staged changes have whitespace errors or leftover conflict markers, found by `git diff --cached --check`; Markdown may keep two trailing spaces for a line break;
 - the staged changes contain a secret, such as an API key or token, found by [gitleaks](https://github.com/gitleaks/gitleaks).
 
-The hook ships with the skill, in `skills/init-project/scripts/pre-commit`, and goes into the clone's own `.git/hooks/`, so it never becomes a project file. That also means it lives in one clone only: run `/miniclaude:init-project` again in a fresh clone to install it there. The hook also blocks commits while gitleaks is not installed, so install it first. If the project already sets `core.hooksPath`, for example through husky, the skill leaves the hooks alone.
+The hook ships with the skill, in `skills/init-project/scripts/pre-commit`, and goes into the clone's own `.git/hooks/`, so it never becomes a project file. That also means it lives in one clone only: run `/miniclaude:init-project` again in a fresh clone to install it there. The hook also blocks commits while gitleaks is missing or older than 8.19, which is the first version with the `gitleaks git` command it uses. If the project already sets `core.hooksPath`, for example through husky, the skill leaves the hooks alone.
+
+**`init-project` installs gitleaks without asking** when it is missing or older than 8.19. It runs `skills/init-project/scripts/install-gitleaks.sh`, which:
+
+- does nothing when a usable gitleaks is already on PATH;
+- with Homebrew available, runs `brew install gitleaks`, or `brew upgrade gitleaks` when Homebrew installed the old version;
+- otherwise downloads the latest release for your OS and CPU from [gitleaks' GitHub releases](https://github.com/gitleaks/gitleaks/releases), checks it against the release's published checksums, and puts the binary in `~/.local/bin`, without `sudo`. If `~/.local/bin` is not on your PATH, it says so and you need to add it.
+
+The script handles Linux and macOS on x64 and arm64. Elsewhere, such as Windows outside WSL, it stops and points you to the [install instructions](https://github.com/gitleaks/gitleaks#installing). It never uses apt or other distribution packages, because they can lag behind and ship a gitleaks older than 8.19.
 
 ## Write the design system
 
