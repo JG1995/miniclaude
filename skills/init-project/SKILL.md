@@ -10,7 +10,9 @@ Copy the starter files from `${CLAUDE_PLUGIN_ROOT}/template/` into the root of t
 
 ## Steps
 
-1. Find the target root with `git rev-parse --show-toplevel`. If the current directory is not a Git repository, stop and ask the user whether to run `git init` first.
+1. Find the target root with `git rev-parse --show-toplevel`.
+   - If the current directory is not a Git repository, stop and ask the user whether to run `git init` first. If they decline, stop: the skill needs a Git repository for its ignore patterns and hook.
+   - If the target root is not the current directory, the current directory sits inside another repository. Stop and ask the user whether to set up that repository's root, or to run `git init` in the current directory to make it a repository of its own. Continue only with the root they choose.
 
 2. List the template files and check which already exist in the target:
 
