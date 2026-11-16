@@ -47,6 +47,6 @@ Copy the starter files from `${CLAUDE_PLUGIN_ROOT}/template/` into the root of t
    - `[describe product]`: ask the user for a one-sentence product description.
    - `[insert repo-specific commands]`: list the install, run, test, typecheck, and lint commands you can find in the repository (for example in `package.json`, `Makefile`, `pyproject.toml`, or `Cargo.toml`). If there are none yet, replace the placeholder with `None yet.` and say so.
 
-7. Report what was copied, what was merged or skipped because it already existed, and any placeholder left unfilled. Tell the user that `.claude/settings.json` stops Claude from reading or writing `.env` files other than `.env.example` and turns off Claude attribution in commits and pull requests. Point the user to `.wiki/INDEX.md` as the starting point.
+7. Report what was copied, what was merged or skipped because it already existed, and any placeholder left unfilled. Tell the user that `.claude/settings.json` stops Claude from reading or writing `.env` files other than `.env.example` and turns off Claude attribution in commits and pull requests, and that `.wiki/` and `.claude/` are git-ignored. Point the user to `.wiki/INDEX.md` as the starting point.
 
-Do not commit. The `.wiki/` folder is git-ignored by design.
+Do not commit. The `.wiki/` and `.claude/` folders are git-ignored by design.
