@@ -24,4 +24,10 @@ if ! command -v gitleaks >/dev/null 2>&1; then
   exit 1
 fi
 
+if ! gitleaks git --help >/dev/null 2>&1; then
+  echo "pre-commit: gitleaks $(gitleaks version) is too old to scan staged changes; 8.19 or later is needed." >&2
+  echo "Upgrade it from https://github.com/gitleaks/gitleaks#installing and commit again." >&2
+  exit 1
+fi
+
 exec gitleaks git --pre-commit --staged --redact --no-banner --verbose
