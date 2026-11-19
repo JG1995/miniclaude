@@ -6,6 +6,8 @@ This document describes how **[Product Name]** is meant to be put together and w
 
 The code shows what the system is. This document says what it is supposed to be, so that new work moves the code toward the intended shape instead of copying its drift.
 
+This document is not fixed. When a feature shows that a rule is wrong, the rule changes for the whole codebase: the decision goes into section 4, and code that still follows the old rule goes into section 3. A rule never gets an exception for one feature.
+
 For the product purpose and domain model, see [CONCEPT.md](./CONCEPT.md). Commands live in the project's `CLAUDE.md`.
 
 ---
@@ -26,7 +28,7 @@ For the product purpose and domain model, see [CONCEPT.md](./CONCEPT.md). Comman
 
 ## 2. Rules
 
-[The constraints that keep the shape intact: dependency direction, interface boundaries, layer separation, and any naming or placement convention that carries architectural meaning. State how each rule is enforced, so reviewers know which rules no tool checks.]
+[The constraints that keep the shape intact: dependency direction, interface boundaries, layer separation, and any naming or placement convention that carries architectural meaning. Once a kind of problem comes up a second time, such as data access, error handling, or validation, add the pattern the codebase uses for it. Add a rule only when its "Why it exists" names something concrete that breaks without it, so the list stays short. Enforce each rule with a linter, type checker, or test where the stack allows it, and write `Convention` only when nothing can check it.]
 
 | Rule               | Enforcement                                 | Why it exists                    |
 | ------------------ | ------------------------------------------- | -------------------------------- |
@@ -37,7 +39,7 @@ For the product purpose and domain model, see [CONCEPT.md](./CONCEPT.md). Comman
 
 ## 3. Where the Code Differs
 
-[Every known gap between this document and the code: structure that is decided but not built yet, and existing code that breaks a rule above. New code follows this document, not the pattern it would replace. Describe the gap here, and schedule the work to close it in [TODO.md](./TODO.md) or [BACKLOG.md](./BACKLOG.md). Delete an entry when its gap is closed. Write `None.` when the code matches.]
+[Every known gap between this document and the code: structure that is decided but not built yet, existing code that breaks a rule above, and kinds of problem the code solves in more than one way. New code follows this document, not the pattern it would replace. Describe the gap here, and schedule the work to close it in [TODO.md](./TODO.md) or [BACKLOG.md](./BACKLOG.md). Delete an entry when its gap is closed. Write `None.` when the code matches.]
 
 - **[Gap]:** [What the code does, what this document intends, and what to do when working near it.]
 
