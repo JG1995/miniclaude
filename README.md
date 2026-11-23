@@ -61,6 +61,8 @@ First choose a brand identity with the [brand-identity plugin](https://github.co
 
 Then run `/miniclaude:design-system`. It turns the set you picked into `.wiki/DESIGN.md`: it maps the identity's colours and typefaces onto the template's tokens, decides layout, shapes, and component rules from the product's requirements, and measures the contrast of every colour pairing it specifies. Before it reports, it reviews its own draft for choices that would suit any product and replaces them with ones that have a source in this identity or this product. It then renders a small specimen from the finished document, looks at the result, and corrects the document. Rendering uses the brand-identity plugin's script and needs a Chromium-based browser. It asks you a question only when it cannot tell which set you chose or what the product needs, such as the target platform.
 
+Other design skills you have installed help shape the document. `design-system` loads the ones that advise on visual or interface design, but a choice that comes from one still needs a source in this identity or this product, and the identity you picked wins. Once `.wiki/DESIGN.md` is filled in, it guides the product: the copied `CLAUDE.md` has Claude follow it when creating UI. Design and creative skills then decide only what the document leaves open, and Claude adds those decisions to it.
+
 ## Specify a feature
 
 Run `/miniclaude:spec <feature>`. It settles what the repository, the wiki, and convention already answer, asks you only about the decisions that have no safe default, then writes the spec to `.wiki/features/`. Build the feature in a fresh session.
