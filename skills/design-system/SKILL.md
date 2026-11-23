@@ -31,7 +31,7 @@ Identity to use: $ARGUMENTS
 
 5. Establish the target platform, the colour modes the product ships, and the density its tasks need, from `PRD.md` and the code. Ask the user only for what you cannot establish and cannot safely default. Ask once, in one message.
 
-6. Write the direction and decide where the identity appears. See [Apply the identity](#apply-the-identity).
+6. Load the other installed skills that advise on visual or interface design, and use their advice through step 8. See [Use other design skills](#use-other-design-skills). Then write the direction and decide where the identity appears. See [Apply the identity](#apply-the-identity).
 
 7. Fill `.wiki/DESIGN.md`. See [Fill the template](#fill-the-template).
 
@@ -160,6 +160,12 @@ The template's sample values are defaults too: its radius scale, spacing steps, 
 
 Keep a familiar pattern when the identity or a task gives it a source, and say which. Replacing one fashionable default with another, such as a purple gradient with a cream ground and a serif, changes nothing.
 
+### Use other design skills
+
+Other installed skills can find better choices and question the draft. Load the ones that advise on visual or interface design for this platform. Leave out the ones that create an identity, write a design system or build UI, because they would replace this skill's work or start the next step. With none installed, continue without them.
+
+Their advice is input, not a decision. A choice that comes from one still needs a source in the identity, the product's tasks, the platform or the code. A random starting point or a ban on a pattern is not a source. The identity the user chose wins over any of them.
+
 ### Make it last
 
 This skill runs once. The UI is built later, in sessions that read `DESIGN.md` and not this skill. Write what you decided as rules those sessions can follow:
@@ -240,6 +246,7 @@ Report:
 - The brand and set used, and the direction in one sentence.
 - Where the expression move lives in the interface, and the modes shipped.
 - The defaults you replaced, and the familiar patterns you kept with the source of each.
+- The other design skills you used, and what each changed in the document.
 - The paths of the specimen images, and what looking at them changed in the document. If the design was not rendered, say so and why.
 - The pairs measured, and any pairing you changed because it failed.
 - The UI extensions you added, and anything left unresolved.
