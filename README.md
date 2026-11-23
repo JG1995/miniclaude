@@ -91,3 +91,12 @@ Before each version bump, Claude has the architecture checker review the whole c
 The same step catches mistakes that keep coming back. Each commit that fixes a mistake ends with a `Mistake:` trailer naming the kind of mistake, and at each version bump Claude groups those trailers since the previous bump. For a kind of mistake seen three or more times, Claude turns on the linter rule that catches it, or adds the right pattern to the rules in `ARCHITECTURE.md` when the mistake is about how a kind of problem is solved, so the architecture checker enforces it on every pull request. Anything else stays with review, which caught it in the first place. None of this asks you anything or adds lines to `CLAUDE.md`.
 
 When no effort level is given, `/code-review` reuses the last level you typed, so typing `/code-review high` once sets the depth of later reviews.
+
+## Run the checks in CI
+
+The copied `CLAUDE.md` has Claude set up CI as soon as the project has tests. CI runs the whole test suite, the typecheck and the linter, with the commands recorded in `CLAUDE.md`, on every pull request and every push to `main`. The plugin ships no workflow file, because the stack is not known when a project starts.
+
+- The run on a pull request shows the test results without relying on Claude's own report. It starts from a clean checkout, so code that depends on a git-ignored file, such as `.env` or anything in `.wiki/`, fails there even when it works locally.
+- The run on `main` finds branches that each pass but break `main` together. Claude checks the latest one before it starts a branch and fixes a failure first, so you do not have to watch for failures.
+
+Claude merges a pull request only when its CI passes, and bumps the version only from a commit on `main` whose CI passed. These are instructions, so nothing blocks a merge that ignores them. To have GitHub enforce the first one, require the CI check in a [branch protection rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches). On private repositories that needs a paid GitHub plan.
